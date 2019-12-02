@@ -1,0 +1,37 @@
+<div class="row">
+    <div class="col-lg-12">
+        <h1>Customer <small>{{orders.user_name}}</small></h1>
+    </div>
+</div>
+<div class="row well well-lg">
+    <div class="col-lg-12">
+        <div class="table-responsive">
+            <table class="table table-hover table-normal">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Phone</th>
+                        <th>Address</th>
+                        <th>Zip</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <input type="text" class="form-control" placeholder="Name" ng-model="custom.nickname" ng-change="save(custom)">
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" placeholder="Phone" ng-model="customer.Phone" ng-change="save(customer)">
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" placeholder="Address" ng-model="customer.address" ng-change="save(customer)">
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" placeholder="Zip" ng-model="customer.pin" ng-change="save(customer)">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

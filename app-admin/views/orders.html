@@ -1,0 +1,62 @@
+<div class="row">
+    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+        <h1>Orders</h1>
+    </div>
+    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 pull-right search">
+        <div class="input-group">
+            <input class="form-control" placeholder="Search Orders" type="text" autocomplete="off" ng-model="order.$id">
+            <div class="input-group-btn">
+                <button class="btn btn-default" data-ember-action="1"><i class="glyphicon glyphicon-search"></i></button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="table-responsive">
+            <table class="table table-hover table-normal">
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <!-- <th>
+                            <a href="" ng-click="predicate = 'orderDate';
+                                        reverse = !reverse">Order Date</a>
+                        </th>-->
+                        <th>Customer</th>
+                        <th>Quantity</th>
+                        <th>Items</th>
+						<th>Total Price</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="order in orders| orderBy:predicate:reverse | filter:order.$id">
+                        <td>
+                            <a href="#/orders/{{order.$id}}">{{order.$id}}</a>
+                        </td>
+                        <td>
+                            <a href="#/customers/{{order.user_id}}">View Details</a>
+                        </td>
+                        <td>
+                            {{order.item_qty}}
+                        </td>
+                        <td>
+                            {{order.product_name}}
+                        </td>
+						<td>
+                            {{(order.product_price)*(order.item_qty)}}
+                        </td>
+                        <td>
+                            <select class="form-control" ng-model="order.status" ng-options="status.option as status.option for status in statuses" ng-change="save(order)">
+                                <option value="">-- Select --</option>
+                            </select>
+                        </td>
+                        <td class="narrow">
+                            <a href="" class="glyphicon glyphicon-trash" ng-click="remove(order)"></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
